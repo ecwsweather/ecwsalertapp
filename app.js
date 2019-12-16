@@ -22,6 +22,8 @@ var registrationRoutes = require("./routes/registration"),
 //     App Config
 //=========================
 
+var port = process.env.PORT || 3000;
+
 mongoose.connect("mongodb://localhost:27017/ecws_alert_app", {useUnifiedTopology: true, useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -109,6 +111,6 @@ app.use(profileRoutes);
 //use admin registration routes
 app.use(adminRoutes);
 
-app.listen(3000, function() {
+app.listen(port, function() {
 	console.log("The Server has Started!")
 })
