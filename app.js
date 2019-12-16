@@ -24,7 +24,7 @@ var registrationRoutes = require("./routes/registration"),
 
 var port = process.env.PORT || 3000;
 
-mongoose.connect("mongodb://localhost:27017/ecws_alert_app", {useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect(mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority, {useUnifiedTopology: true, useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
@@ -43,7 +43,7 @@ app.use(function(req, res, next) {
 //    Passport Config
 //=========================
 
-var sessionStore = new session.MemoryStore;
+var sessionStore = new session.sessionStore;
 
 app.use(session({
 	cookie: { maxAge: 60000 },
