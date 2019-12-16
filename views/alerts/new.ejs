@@ -1,0 +1,27 @@
+<%- include('../partials/header'); %>
+
+<div class="form-div">
+	<h1>New Alert</h1>
+	<form action="/alerts" method="POST">
+		<div class="form-group">
+			<input class="new-alert-form" type="text" name="subject" placeholder="Subject">
+		</div>
+		<div class="form-group">
+			<textarea name="body"></textarea>
+		</div>
+		<div class="form-group">
+			<input class="new-alert-form" type="text" name="expires" placeholder="Expiration">
+		</div>
+		<div class="form-group">
+			<h3>Select Alerts to Recieve:</h3>
+			<h3>Maryland<input class="checkbox" type="checkbox" name="maryland" value=true></h3>
+			<h3>Virginia<input class="checkbox" type="checkbox" name="virginia" value=true></h3>
+			<h3>Pennsylvania<input class="checkbox" type="checkbox" name="pennsylvania" value=true></h3>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary btn-lg">Submit</button>
+		</div>
+	</form>
+</div>
+
+<%- include('../partials/footer'); %>

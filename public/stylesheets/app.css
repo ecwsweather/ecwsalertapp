@@ -1,0 +1,69 @@
+.main-body {
+	margin: 10px;
+}
+
+.remove-margin {
+	margin: 0;
+}
+
+input.checkbox {
+	margin: 10px;
+	height: 25px;
+	width: 25px;
+}
+
+.header {
+	font-size: 30px;
+}
+
+textarea {
+	width: 400px;
+	height: 250px;
+}
+
+#subject {
+	width: 400px;
+}
+
+.email-alert-list {
+	font-size: 17px;
+}
+
+.form-div {
+	width: 30%;
+	margin: 25px auto;
+	display: block;
+	text-align: center;
+}
+
+.main-header {
+	text-align: center;
+}
+
+.text-box {
+	width: 65%;
+}
+
+.format-alert {
+	padding: 10px;
+	border: 0.5px solid grey;
+}
+
+.head-body-split {
+	border-bottom: 0.5px solid grey;
+	padding-bottom: 10px;
+}
+
+.alert-button {
+	margin-left: 5px;
+}
+
+p {
+	font-size: 20px;
+}
+
+footer {
+	padding: 25px;
+	padding-left: 10px;
+	background: lightgray;
+}

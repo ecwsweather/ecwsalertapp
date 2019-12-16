@@ -1,0 +1,37 @@
+<%- include('../partials/header'); %>
+
+<div style="width: 30%;margin: 25px auto;">
+	<h1>Register a User</h1>
+	<form action="/admin/register" method="POST">
+	<div class="form-group">
+		<input type="text" name="name" placeholder="name" required>
+	</div>
+	<div class="form-group">
+		<input type="text" name="username" placeholder="username" required>
+	</div>
+	<div class="form-group">
+		<input tpye="email" name="email" placeholder="email" required>
+	</div>
+	<div class="form-group">
+			<h3>Select Alerts to Recieve:</h3>
+			<h3>Maryland<input class="checkbox" type="checkbox" name="maryland" value=true></h3>
+			<h3>Virginia<input class="checkbox" type="checkbox" name="virginia" value=true></h3>
+			<h3>Pennsylvania<input class="checkbox" type="checkbox" name="pennsylvania" value=true></h3>
+		</div>
+	Select Role:<div class="form-group">
+		<select name="role" required>
+		<option></option>
+		<option>User</option>
+		<option>Admin</option>
+	</select>
+	</div>
+	<div class="form-group">
+		<input type="password" name="password" placeholder="password" required>
+	</div>
+	<div>
+		<button class="btn btn-lg btn-primary">Sign Up</button>
+	</div>
+</form>
+</div>
+
+<%- include('../partials/footer'); %>

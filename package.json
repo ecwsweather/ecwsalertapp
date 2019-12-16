@@ -1,0 +1,27 @@
+{
+  "name": "ecwsalertapp",
+  "version": "1.0.0",
+  "description": "This is an online app to view ECWS alerts as well as the e-mail alert system.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonathan Kaufman",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.1.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^5.8.0",
+    "nodemailer": "^6.4.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1"
+  }
+}

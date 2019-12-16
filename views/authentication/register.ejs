@@ -1,0 +1,28 @@
+<%- include('../partials/header'); %>
+
+<div class="form-div">
+	<h1>Register for E-mail Alerts</h1>
+	<form action="/register" method="POST">
+		<div class="form-group">
+			<input class="text-box" type="text" name="name" placeholder="name">
+		</div>
+		<div class="form-group">
+			<input class="text-box" type="email" name="email" placeholder="E-mail">
+		</div>
+		<div class="form-group">
+			<input class="text-box" type="text" name="username" placeholder="Username">
+		</div>
+		<div class="form-group">
+			<input class="text-box" type="password" name="password" placeholder="Password">
+		</div>
+		<div class="form-group">
+			<h3>Select Alerts to Recieve:</h3>
+			<h3>Maryland<input class="checkbox" type="checkbox" name="maryland" value=true></h3>
+			<h3>Virginia<input class="checkbox" type="checkbox" name="virginia" value=true></h3>
+			<h3>Pennsylvania<input class="checkbox" type="checkbox" name="pennsylvania" value=true></h3>
+		</div>
+		<button>Submit</button>
+	</form>
+</div>
+
+<%- include('../partials/footer'); %>

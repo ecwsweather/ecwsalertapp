@@ -1,0 +1,43 @@
+<%- include('../partials/header'); %>
+
+<h1>Welcome to the Admin Control Center!</h1>
+<br>
+<h4>Username: <%= currentUser.username %></h4>
+<h4>Name: <%= currentUser.name %></h4>
+<h4>E-mail: <%= currentUser.email %></h4>
+<h4>Role: <%= currentUser.role %></h4>
+<h4>E-mail Alerts</h4>
+<ul>
+	<% if(currentUser.maryland == true) { %>
+		<li class="email-alert-list">Maryland</li>
+	<% } %>
+	<% if(currentUser.virginia == true) { %>
+		<li class="email-alert-list">Virginia</li>
+	<% } %>
+	<% if(currentUser.pennsylvania == true) { %>
+		<li class="email-alert-list">Pennsylvania</li>
+	<% } %>
+</ul>
+
+<br>
+
+<a class="btn btn-primary btn-lg" href="/update">Update Profile</a>
+
+<br>
+<br>
+
+<a class="btn btn-primary btn-lg" href="/admin/register">Register a User</a>
+
+<br>
+<br>
+
+<a class="btn btn-primary btn-lg" href="/admin/update">Update User Role</a>
+
+<br>
+<br>
+
+<a class="btn btn-primary btn-lg" href="/alerts/new">Issue New Alert</a>
+
+<br>
+
+<%- include('../partials/footer'); %>
