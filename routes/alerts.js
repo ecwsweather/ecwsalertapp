@@ -22,7 +22,7 @@ function stateValue(state) {
 
 function sendTo(maryland,virginia,pennsylvania, body) {
 	var mongo = require("mongodb");
-	var url = "mongodb://localhost:27017/ecws_alert_app";
+	var url = "mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
 	mongo.connect(url, function(error, db) {
 		var query = [];
 		if(error) {
@@ -106,7 +106,7 @@ function emailAlert(body) {
 //=========================
 
 router.get("/", function(req, res) {
-	var url = "mongodb://localhost:27017/ecws_alert_app";
+	var url = "mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
 	var current = new Date();
 	
 	mongo.connect(url, function(error, db) {
@@ -130,7 +130,7 @@ router.get("/new", isAdmin, function(req, res) {
 
 router.get("/:state", function(req, res) {
 	var state = req.params.state;
-	var url = "mongodb://localhost:27017/ecws_alert_app";
+	var url = "mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
 	var current = new Date();
 
 	mongo.connect(url, function(error, db) {
