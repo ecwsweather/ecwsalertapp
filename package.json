@@ -4,6 +4,7 @@
   "description": "This is an online app to view ECWS alerts as well as the e-mail alert system.",
   "main": "app.js",
   "scripts": {
+	"start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jonathan Kaufman",
