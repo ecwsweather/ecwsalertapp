@@ -1,4 +1,5 @@
 var LocalStrategy = require("passport-local"),
+	sessionstore  = require("sessionstore"),
 	cookieParser  = require("cookie-parser"),
 	bodyParser 	  = require("body-parser"),
 	passport 	  = require("passport"),
@@ -9,7 +10,9 @@ var LocalStrategy = require("passport-local"),
 	flash		  = require("connect-flash"),
 	User		  = require("./models/users"),
 	MongoClient   = require("mongodb"),
-	app 		  = express();
+	connect       = require("connect"),
+	app 		  = express(),
+	newApp    = connect();
 
 var registrationRoutes = require("./routes/registration"),
 	alertRoutes 	   = require("./routes/alerts"),
@@ -24,7 +27,7 @@ var registrationRoutes = require("./routes/registration"),
 
 var port = process.env.PORT || 3000;
 
-mongoose.connect("mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect("mongodb://ecwsadmin:ecwsalertsadmin@ecwsalertapp-shard-00-00-j9rsf.mongodb.net:27017,ecwsalertapp-shard-00-01-j9rsf.mongodb.net:27017,ecwsalertapp-shard-00-02-j9rsf.mongodb.net:27017/test?ssl=true&replicaSet=ecwsalertapp-shard-0&authSource=admin&retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
@@ -43,14 +46,19 @@ app.use(function(req, res, next) {
 //    Passport Config
 //=========================
 
-var sessionStore = new session.sessionStore;
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'This is a secret String for ECWS Alert Center',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 
 app.use(session({
-	cookie: { maxAge: 60000 },
-	store: sessionStore,
-	secret: "This is for the ECWS Alert Center",
-	resave: false,
-	saveUninitialized: false
+    store: sessionstore.createSessionStore({
+        type: 'mongodb',
+    	url: "mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority"
+    })
 }));
 
 app.use(flash());
@@ -60,6 +68,7 @@ app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;
 	next();
 })
+
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
