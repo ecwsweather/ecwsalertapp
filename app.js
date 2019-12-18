@@ -27,7 +27,7 @@ var registrationRoutes = require("./routes/registration"),
 
 var port = process.env.PORT || 3000;
 
-mongoose.connect("mongodb://ecwsadmin:ecwsalertsadmin@ecwsalertapp-shard-00-00-j9rsf.mongodb.net:27017,ecwsalertapp-shard-00-01-j9rsf.mongodb.net:27017,ecwsalertapp-shard-00-02-j9rsf.mongodb.net:27017/test?ssl=true&replicaSet=ecwsalertapp-shard-0&authSource=admin&retryWrites=true&w=majority", {useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect("mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));

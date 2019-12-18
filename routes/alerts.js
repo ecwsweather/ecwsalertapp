@@ -22,8 +22,9 @@ function stateValue(state) {
 
 function sendTo(maryland,virginia,pennsylvania, body) {
 	var mongo = require("mongodb");
-	var url = "mongodb://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
+	var url = "mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
 	mongo.connect(url, function(error, db) {
+		console.log("Successful Connection!")
 		var query = [];
 		if(error) {
 			console.log(error)
@@ -106,7 +107,7 @@ function emailAlert(body) {
 //=========================
 
 router.get("/", function(req, res) {
-	var url = "mongodb://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
+	var url = "mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
 	var current = new Date();
 	
 	mongo.connect(url, function(error, db) {
@@ -130,7 +131,7 @@ router.get("/new", isAdmin, function(req, res) {
 
 router.get("/:state", function(req, res) {
 	var state = req.params.state;
-	var url = "mongodb://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
+	var url = "mongodb+srv://ecwsadmin:ecwsalertsadmin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
 	var current = new Date();
 
 	mongo.connect(url, function(error, db) {
