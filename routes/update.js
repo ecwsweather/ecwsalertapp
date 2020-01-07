@@ -46,7 +46,7 @@ router.post("/update", isLoggedIn, function(req, res) {
 	var maryland = req.body.maryland;
 	var virginia = req.body.virginia;
 	var pennsylvania = req.body.pennsylvania;
-	var url = "mongodb://ecwsadmin:ecwsalertsadmin@ecwsalertapp-shard-00-00-j9rsf.mongodb.net:27017,ecwsalertapp-shard-00-01-j9rsf.mongodb.net:27017,ecwsalertapp-shard-00-02-j9rsf.mongodb.net:27017/test?ssl=true&replicaSet=ecwsalertapp-shard-0&authSource=admin&retryWrites=true&w=majority";
+	var url = "mongodb+srv://ecwsadmin:admin@ecwsalertapp-j9rsf.mongodb.net/ecwsalertapp?retryWrites=true&w=majority";
 	MongoClient.connect(url, function(err, db) {
 		if (err) throw err;
 	  	var myquery = {username: username };
@@ -78,7 +78,7 @@ router.get("/admin/update", isAdmin, function(req, res) {
 router.post("/admin/update", isAdmin, function(req, res) {
 	var username = req.body.username;
 	var role = req.body.role;
-	var url = "mongodb://ecwsadmin:ecwsalertsadmin@ecwsalertapp-shard-00-00-j9rsf.mongodb.net:27017,ecwsalertapp-shard-00-01-j9rsf.mongodb.net:27017,ecwsalertapp-shard-00-02-j9rsf.mongodb.net:27017/test?ssl=true&replicaSet=ecwsalertapp-shard-0&authSource=admin&retryWrites=true&w=majority";
+	var url = "mongodb+srv://ecwsadmin:admin@ecwsalertapp-j9rsf.mongodb.net/test?retryWrites=true&w=majority";
 	MongoClient.connect(url, function(err, db) {
 		if (err) throw err;
 	  	var myquery = {username: username };
